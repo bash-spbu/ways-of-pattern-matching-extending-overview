@@ -44,10 +44,10 @@ Farther the work introduces pattern combinators which allow building of arbitrar
 type ('a, 'b) pat = 'a -> 'b option
 
 val ($|): ('a, 'b) pat -> ('a, 'b) pat -> ('a, 'b) pat (* or *)
-val ($&): ('a, 'b) pat -> ('a, 'b) pat -> ('a, ('b, 'b)) pat (* and *)
+val ($&): ('a, 'b) pat -> ('a, 'b) pat -> ('a, 'b * 'b) pat (* and *)
 val ($:): ('a, 'b) pat -> ('b, 'c) pat -> ('a, 'c) pat (* then *)
 val ($>): ('a, 'b) pat -> ('b -> 'c)   -> ('a, 'c) pat (* compose *)
-val ($*): ('a, 'c) pat -> ('b, 'd) pat -> (('a, 'c), ('b, 'd)) pat
+val ($*): ('a, 'c) pat -> ('b, 'd) pat -> ('a * 'c, 'b * 'd) pat
 (* parallel *)
 ```
 
